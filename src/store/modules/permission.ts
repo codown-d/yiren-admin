@@ -21,6 +21,7 @@ export const usePermissionStore = defineStore('permission', {
   }),
   getters: {
     getRouters(): AppRouteRecordRaw[] {
+      console.log()
       return this.routers
     },
     getAddRouters(): AppRouteRecordRaw[] {

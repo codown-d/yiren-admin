@@ -375,7 +375,9 @@ onMounted(async () => {
   try {
     // 加载菜单
     const resp = await MenuApi.getSimpleMenusList()
+    
     menus.value = handleTree(resp)
+    console.log(menus.value,123)
   } catch {}
 })
 

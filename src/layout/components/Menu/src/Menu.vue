@@ -7,6 +7,7 @@ import { useRenderMenuItem } from './components/useRenderMenuItem'
 import { isUrl } from '@/utils/is'
 import { useDesign } from '@/hooks/web/useDesign'
 import { LayoutType } from '@/types/layout'
+import { filterTree } from '@/utils/filterTree'
 
 const { getPrefixCls } = useDesign()
 
@@ -41,9 +42,12 @@ export default defineComponent({
       }
     })
 
-    const routers = computed(() =>
-      unref(layout) === 'cutMenu' ? permissionStore.getMenuTabRouters : permissionStore.getRouters
-    )
+    const routers = computed(() => {
+      let result =
+        unref(layout) === 'cutMenu' ? permissionStore.getMenuTabRouters : permissionStore.getRouters
+      console.log(result, filterTree(result,['dict','/','area','/index']))
+        return filterTree(result,['dict','Index','area','/'])
+    })
 
     const collapse = computed(() => appStore.getCollapse)
 
@@ -189,7 +193,7 @@ $prefix-cls: #{$namespace}-menu;
 
   // 折叠动画的时候，就需要把文字给隐藏掉
   :deep(.horizontal-collapse-transition) {
-    // transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out !important;
+    // transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out !important;transition
     .#{$prefix-cls}__title {
       display: none;
     }

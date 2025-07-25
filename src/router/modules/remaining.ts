@@ -55,7 +55,10 @@ const remainingRouter: AppRouteRecordRaw[] = [
     component: Layout,
     redirect: '/index',
     name: 'Home',
-    meta: {},
+    meta: {
+      title: t('router.home'),
+      icon: 'ep:home-filled'
+    },
     children: [
       {
         path: 'index',
