@@ -45,8 +45,8 @@ export default defineComponent({
     const routers = computed(() => {
       let result =
         unref(layout) === 'cutMenu' ? permissionStore.getMenuTabRouters : permissionStore.getRouters
-      console.log(result, filterTree(result,['dict','/','area','/index']))
-        return filterTree(result,['dict','Index','area','/'])
+      console.log(permissionStore.getRouters,result, filterTree(result,['dict','/','area','/index']))
+        return filterTree(result,['dict','Index','area','/','/custom-config','init-config'])
     })
 
     const collapse = computed(() => appStore.getCollapse)
@@ -104,6 +104,7 @@ export default defineComponent({
           {{
             default: () => {
               const { renderMenuItem } = useRenderMenuItem(unref(menuMode))
+              console.log(123,routers)
               return renderMenuItem(unref(routers))
             }
           }}

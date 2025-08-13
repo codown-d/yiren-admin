@@ -38,9 +38,39 @@ export const usePermissionStore = defineStore('permission', {
         let res: AppCustomRouteRecordRaw[] = []
         const roleRouters = wsCache.get(CACHE_KEY.ROLE_ROUTERS)
         if (roleRouters) {
-          res = roleRouters as AppCustomRouteRecordRaw[]
+          res = [
+            ...roleRouters,
+            {
+              id:3996,
+              parentId: 0,
+              name: '初始化配置',
+              path: '/custom-config',
+              component: '',
+              componentName: '',
+              icon: 'fa-solid:hdd',
+              keepAlive: true,
+              visible: true,
+              children: [
+                {
+                  id: 39961,
+                  parentId: 3996,
+                  name: '配置',
+                  path: 'init-config',
+                  component: 'custom-config/index',
+                  componentName: 'InitConfig',
+                  icon: 'ep:home-filled',
+                  visible: true,
+                  keepAlive: true,
+                  alwaysShow: true,
+                  children: null
+                }
+              ]
+            }
+          ] as AppCustomRouteRecordRaw[]
         }
+        console.log(res, CACHE_KEY.ROLE_ROUTERS, roleRouters)
         const routerMap: AppRouteRecordRaw[] = generateRoute(res)
+        console.log(routerMap)
         // 动态路由，404一定要放到最后面
         // preschooler：vue-router@4以后已支持静态404路由，此处可不再追加
         this.addRouters = routerMap.concat([

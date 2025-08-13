@@ -749,6 +749,27 @@ const remainingRouter: AppRouteRecordRaw[] = [
         component: () => import('@/views/iot/plugin/detail/index.vue')
       }
     ]
+  },
+  {
+    path: '/custom-config',
+    component: Layout,
+    name: 'CustomConfig',
+    meta: {
+      hidden: true
+    },
+    children: [
+      {
+        path: 'init-config',
+        name: 'InitConfig',
+        meta: {
+          title: '自定义配置',
+          icon: 'ep:home-filled',
+          noCache: false,
+          activeMenu: '/init-config'
+        },
+        component: () => import('@/views/custom-config/index.vue'),
+      }
+    ]
   }
 ]
 

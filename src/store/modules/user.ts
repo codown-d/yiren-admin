@@ -56,6 +56,7 @@ export const useUserStore = defineStore('admin-user', {
       let userInfo = wsCache.get(CACHE_KEY.USER)
       if (!userInfo) {
         userInfo = await getInfo()
+        console.log(userInfo)
       } else {
         // 特殊：在有缓存的情况下，进行加载。但是即使加载失败，也不影响后续的操作，保证可以进入系统
         try {
@@ -68,6 +69,7 @@ export const useUserStore = defineStore('admin-user', {
       this.user = userInfo.user
       this.isSetUser = true
       wsCache.set(CACHE_KEY.USER, userInfo)
+      console.log( userInfo.menus)
       wsCache.set(CACHE_KEY.ROLE_ROUTERS, userInfo.menus)
     },
     async setUserAvatarAction(avatar: string) {
