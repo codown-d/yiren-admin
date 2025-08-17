@@ -5,13 +5,13 @@ interface TreeNode {
   [key: string]: any
 }
 
-export function filterTree(tree: TreeNode[], targets: string[]): TreeNode[] {
+export function filterTree(tree: TreeNode[], targets?: string[]): TreeNode[] {
   return tree
     .map((node) => {
       // 递归过滤子节点
       const matchedChildren = node.children ? filterTree(node.children, targets) : []
 
-      const isMatched = targets.includes(node.path)
+      const isMatched =!targets|| targets?.includes(node.path)
 
       if (isMatched || matchedChildren.length > 0) {
         return {

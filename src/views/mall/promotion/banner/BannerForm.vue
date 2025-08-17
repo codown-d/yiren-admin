@@ -24,12 +24,12 @@
           </el-form-item>
         </el-col>
         <el-col :span="24">
-          <el-form-item label="排序" prop="sort">
+          <el-form-item label="排序" prop="sort" v-if="false">
             <el-input-number v-model="formData.sort" :min="0" clearable controls-position="right" />
           </el-form-item>
         </el-col>
         <el-col :span="24">
-          <el-form-item label="状态" prop="status">
+          <el-form-item label="状态" prop="status" v-if="false">
             <el-radio-group v-model="formData.status">
               <el-radio
                 v-for="dict in getIntDictOptions(DICT_TYPE.COMMON_STATUS)"
@@ -42,7 +42,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="24">
-          <el-form-item label="位置" prop="position">
+          <el-form-item label="位置" prop="position"  v-if="false">
             <el-radio-group v-model="formData.position">
               <el-radio
                 v-for="dict in getIntDictOptions(DICT_TYPE.PROMOTION_BANNER_POSITION)"

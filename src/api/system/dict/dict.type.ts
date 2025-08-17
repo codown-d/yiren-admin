@@ -42,3 +42,6 @@ export const deleteDictType = (id: number) => {
 export const exportDictType = (params) => {
   return request.download({ url: '/system/dict-type/export', params })
 }
+export const getTongJi = (params?: any) => {
+  return request.get({ url: '/member/user/getTongJi' ,params})
+}

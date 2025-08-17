@@ -17,7 +17,7 @@
           placeholder="请输入参数名称"
         />
       </el-form-item>
-      <el-form-item label="状态" prop="status">
+      <el-form-item label="状态" prop="status" v-if="getIntDictOptions(DICT_TYPE.COMMON_STATUS).length">
         <el-radio-group v-model="formData.status">
           <el-radio
             v-for="dict in getIntDictOptions(DICT_TYPE.COMMON_STATUS)"

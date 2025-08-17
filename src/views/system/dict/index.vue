@@ -26,7 +26,7 @@
           @keyup.enter="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="状态" prop="status">
+      <el-form-item label="状态" prop="status" v-if="getIntDictOptions(DICT_TYPE.COMMON_STATUS).length">
         <el-select
           v-model="queryParams.status"
           class="!w-240px"
@@ -146,7 +146,7 @@ import { dateFormatter } from '@/utils/formatTime'
 import * as DictTypeApi from '@/api/system/dict/dict.type'
 import DictTypeForm from './DictTypeForm.vue'
 import download from '@/utils/download'
-
+console.log(getIntDictOptions(DICT_TYPE.COMMON_STATUS))
 defineOptions({ name: 'SystemDictType' })
 
 const message = useMessage() // 消息弹窗

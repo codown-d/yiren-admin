@@ -71,16 +71,6 @@
           <el-image :src="row.picUrl" class="h-30px w-30px" @click="imagePreview(row.picUrl)" />
         </template>
       </el-table-column>
-      <el-table-column align="center" label="状态" prop="status">
-        <template #default="scope">
-          <dict-tag :type="DICT_TYPE.COMMON_STATUS" :value="scope.row.status" />
-        </template>
-      </el-table-column>
-      <el-table-column align="center" label="定位" prop="position">
-        <template #default="scope">
-          <dict-tag :type="DICT_TYPE.PROMOTION_BANNER_POSITION" :value="scope.row.position" />
-        </template>
-      </el-table-column>
       <el-table-column align="center" label="跳转地址" prop="url" />
       <el-table-column
         :formatter="dateFormatter"
