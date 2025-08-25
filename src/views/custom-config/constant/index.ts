@@ -1,12 +1,12 @@
 export const AGE = new Array(34).fill('').map((_, index) => {
   return {
     label: `${index + 16}岁`,
-    value: `${index + 16}岁`
+    value: index + 16
   }
 })
 export const SEX = ['女', '男', '保密']
 // 工作类型
-export const WORK_TYPES = ['全职', '兼职', '兼职', '兼职', '临时']
+export const WORK_TYPES = ['全职', '兼职', '实习','临时']
 
 // 工作经验
 export const EXPERIENCE_LEVELS = ['应届毕业', '1-3年', '3-5年', '5-10年', '10年以上']
@@ -252,5 +252,6 @@ export const PostCategory = [ '舞蹈技巧' , '招聘信息', '武术交流']
 export const visibilitySetting = [ '公开',  '私密']
 export const availableTopics = [ '话题1', '话题2', '话题3', '话题4']
 export const involved = [ '文化', '体育', '历史', '社会']
+export const zhaopingyaoqiu = [ '招聘要求1', '招聘要求2', '招聘要求3', '招聘要求4']
 
 

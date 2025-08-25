@@ -19,7 +19,8 @@ import {
   SEX,
   WORK_TYPES,
   PostCategory,
-  visibilitySetting
+  visibilitySetting,
+  zhaopingyaoqiu
 } from './constant'
 import { keys } from 'lodash-es'
 import { ElNotification } from 'element-plus'
@@ -41,7 +42,8 @@ const addEmu = async () => {
     PostCategory: '帖子分类',
     visibilitySetting: '帖子公开性',
     availableTopics: '帖子话题',
-    involved: '公司所属行业'
+    involved: '公司所属行业',
+    zhaopingyaoqiu: '招聘要求'
   }
   let obj = {
     involved,
@@ -59,7 +61,8 @@ const addEmu = async () => {
     advantageActions,
     ALL_CATEGORIES_DISPLAY,
     PostCategory,
-    visibilitySetting
+    visibilitySetting,
+    zhaopingyaoqiu
   }
   let result = await Promise.all(
     keys(obj).map(async (item) => {
